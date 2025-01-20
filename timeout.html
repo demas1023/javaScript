@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function publicidad(){
+            console.log("compra esto antes de irte");
+        }
+        let skip = setTimeout(publicidad, 5000);
+
+        function saludos(nombre, rol){
+            console.log(`Bienvenido ${nombre}, eres ${rol} de la web.`)
+        }
+
+        setTimeout(saludos, 2000, "Juan", "Administrador");
+        
+        let numero = 10;
+        let stopCount;
+        
+        function  cuenta(){
+            numero--;
+            document.getElementById("contador").innerHTML = numero
+            if(numero != 0){
+                stopCount = setTimeout(cuenta, 1000);
+            }
+            
+        }
+
+        stopCount = setTimeout(cuenta, 1000);
+        
+    </script>
+    <button onclick='clearTimeout(skip)'>Parar publicidad</button>
+
+    <div id="contador" > 
+
+    </div>
+    <button onclick='clearTimeout(stopCount)'>Parar cuenta atras</button>
+    
+</body>
+</html>

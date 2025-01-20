@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Three In Line</title>
+        
+        <link rel="stylesheet" href="threeinline.css"/>
+    </head>
+    <body>
+
+        <div id="WB" class="winnerBoard" onclick="gone()"></div> 
+        
+        
+        <div class="board">
+            <div id="1:1" class="celltopright" onclick="play(1,1)"></div>       <div id="2:1" class="celltopcenter" onclick="play(2,1)"></div>      <div id="3:1" class="celltopleft" onclick="play(3,1)"></div>
+
+            <div id="1:2" class="cellrightcenter" onclick="play(1,2)"></div>    <div id="2:2" class="cellcenter" onclick="play(2,2)"></div>         <div id="3:2" class="cellleftcenter" onclick="play(3,2)"></div>
+
+            <div id="1:3" class="cellbottomright" onclick="play(1,3)"></div>    <div id="2:3" class="cellbottomcenter" onclick="play(2,3)"></div>   <div id="3:3" class="cellbottonleft" onclick="play(3,3)"></div>
+        </div>
+
+        <div id="CP" class="CtrlPanel">
+            <div class="button" onclick="whoPlays(true)"><img src="img/person14-512.webp" style="width: 90%;"/>Player First</div>
+            <div class="button" onclick="whoPlays(false)"><img src="img/CPU.png" style="width: 90%;"/>Computer First</div>
+        </div>
+        
+
+    <script src="threeInLine.js"></script>
+    </body>
+</html>

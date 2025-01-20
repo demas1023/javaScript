@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+            let hora= prompt("Que hora es?");
+
+            if(hora < 0 || hora > 24){
+                console.log("Hora incorrecta");
+            } else {
+                if(hora > 6 && hora < 12){
+                    console.log("Buenos dias");
+                } else if(hora > 11 && hora < 20){
+                    console.log("Buenas tardes");
+                } else if(hora > 20 || hora < 8){
+                    console.log("Buenas noches");
+                }
+            }
+        </script>
+    </body>
+</html>

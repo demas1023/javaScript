@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let n = parseInt(prompt("ingrese un numero"));
+        let j = 0;
+
+        for(let i = 1; i <= n; i++){
+            let fila = '';
+
+            for(let j = 1; j <= i; j++){
+                fila += j;
+            }
+
+            for(let j = (i-1); j >= 1; j--){
+                fila += j;
+            }
+            
+            document.write("<center>")
+            document.write(fila);
+            document.write("</center>")
+
+        }
+
+    </script>
+</body>
+</html>

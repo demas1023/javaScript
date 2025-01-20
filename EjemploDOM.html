@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOMe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="container">
+
+        <h1>Ejemplo DOM</h1>
+        <button onclick="leernombre()"> Pulsa y te digo tu nombre </button>
+
+        <div>
+            <img id="img" src="" width="300px"/>
+        </div>
+        <form id="miFormulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Escribe tu email">
+
+            <label for="pais">País:</label>
+            <select id="pais" name="pais">
+                <option value="">Selecciona un país</option>
+                <option value="mx">México</option>
+                <option value="es">España</option>
+                <option value="us">Estados Unidos</option>
+            </select>
+
+            <label>Género:</label>
+            <input type="radio" id="hombre" name="genero" value="hombre"> Hombre
+            <input type="radio" id="mujer" name="genero" value="mujer"> Mujer
+
+            <input type="button" value="Obtener Información" 
+            onclick="mostrarInformacion()">
+        </form>
+
+        <div class="output" id="resultado">
+            <!-- Aquí se mostrará el resultado -->
+        </div>
+    </div>
+
+    <script src="ejemploDOM.js"></script>
+</body>
+</html>

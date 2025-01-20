@@ -1,0 +1,45 @@
+/*table{
+    border-collapse: collapse;
+}*/
+
+/*td{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}*/
+
+.table{
+    background-color: burlywood;
+    width: 450px;
+    height: 450px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.white{
+    width: 12.5%;
+    height: 12.5%;
+    background-color: white;
+    justify-content: center;
+    align-content: center;
+}
+
+.black{
+    width: 12.5%;
+    height: 12.5%;
+    background-color: black;
+    justify-content: center;
+    align-content: center;
+}
+
+.BP{
+    background-color: black;
+    color: white;
+}
+
+.WP{
+    background-color: white;
+    color: black;
+}

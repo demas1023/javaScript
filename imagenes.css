@@ -1,0 +1,14 @@
+#imgFeed{
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+}
+
+#imgFeed2{
+    display: flex;
+    flex-direction: row;
+}
+
+#imgShow{
+    height: 600px;
+}
