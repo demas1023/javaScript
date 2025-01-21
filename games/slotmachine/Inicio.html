@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slot Machine</title>
+    <link rel="stylesheet" href="game.css"/>
 </head>
 <body>
+    <div id="banner" class="banner">INSERT COINS</div>
     <div id="slots" class="slots">
-        <img id="slot1" src="" width="400px">
-        <img id="slot2" src="" width="400px">
-        <img id="slot3" src="" width="400px">
+        <img id="slot1" src="Cartoon-heart-illustration-on-transparent-background-PNG.png" width="30%">
+        <img id="slot2" src="images.png" width="30%">
+        <img id="slot3" src="png-clipart-cartoon-flower-drawing-flowers-cartoon-purple-symmetry-thumbnail.png" width="30%">
+    </div>
+    <div id="coin" class="coin" onclick="insertCoin()">
+        <p>INSERT COINS</p>
+        <img id="coinImg" src="pngtree-golden-dollar-coin-money-png-image_2337468.jpg" width="70%">
+        <div id="counter"></div>
     </div>
     <div id="lever" class="lever" onclick="playSlots()">PLAY</div>
     <script src="juego.js"></script>
