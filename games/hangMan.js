@@ -6,7 +6,7 @@ let dificulty;
 
 // tries, grafical representation
 let hangman = new Array();
-hangman[0] = [""];
+hangman[0] = ["img/hangmanT0.jpg"];
 hangman[1] = ["img/hangmanT1.jpg"];
 hangman[2] = ["img/hangmanT2.jpg"];
 hangman[3] = ["img/hangmanT3.jpg"];
@@ -17,17 +17,37 @@ hangman[7] = ["img/hangmanT7.jpg"];
 
 // dificulty levels
 let peasant = new Array();  //easy
-peasant[0] = "BREAD";
+peasant = ["BREAD", "FRANKLIN", "WARRENER", "LUPARIUS", "BORDAR", "COTTAR"];
 let noble = new Array();    //medium
-
+noble = ["BAILIFF", "BARON", "DUKE", "EARL", "GENTRY", "KNIGHT", "TENANT", "VASSAL"];
 let priest = new Array();   //hard
+priest = ["LIMNER", "ARCHBISHOP", "CANON", "CELIBACY", "CHANCELLOR", "CHASTITY", "COADJUTOR"];
 
 //hints per dificulty
 let peasantHint = new Array();
-
+peasantHint = ["Comon edible, usualy brown", 
+                "Peasant who is wealthy", 
+                "A person who oversaw rabbit warrens", 
+                "A man who hunted wolves", 
+                "A peasant of middle rank who farmed about 10-20 acres", 
+                "A lower ranking peasant; someone who lived in a cottage but had no land to farm"];
 let nobleHint = new Array();
-
+nobleHint = ["The steward or overseer for a lord", 
+             "A lord who held land granted from the crown and served on the king's privy council",
+             "A member of the aristocracy with royal blood",
+             "The highest title a man without royal blood could earn or inherit",
+             "A class of people just below knights",
+             "A man who owed military service to his lord in exchange for his lands",
+             "A man who rented land from the landowner",
+             "A free man who swore his loyalty to a lord"]
 let priestHint = new Array();
+priestHint = ["A person who illuminated manuscripts",
+                "The title given automatically to bishops who govern archdioceses",
+                "Greek for rule, norm, standard or measure, it is used in several ways in church language",
+                "Refers to a decision to live chastely in the unmarried state",
+                "The chief archivist of a diocese's official records",
+                "Does not mean abstinence from sexual activity as such, but rather moral sexual conduct",
+                "A bishop appointed to a Catholic diocese or archdiocese to assist the diocesan bishop"]
 
 // elements in the page wen first loaded
 let scrol = document.getElementById("scroll");
@@ -61,9 +81,9 @@ function hangMan(tries){
 
 }
 
-function wordSelection(dificulty){
+function wordSelection(d){
 
-    switch(dificulty){
+    switch(d){
         case 1:
             wordI = parseInt(Math.random() * peasant.length-1);
             word = peasant[wordI];
@@ -71,7 +91,7 @@ function wordSelection(dificulty){
                 answer += "_";
                 console.log(i)
             }
-            this.dificulty = 1;
+            dificulty = 1;
             break;
         case 2:
             wordI = parseInt(Math.random() * noble.length-1);
@@ -79,7 +99,7 @@ function wordSelection(dificulty){
             for(let i = 0; i < word.length; i++){
                 answer += "_";
             }
-            this.dificulty = 2;
+            dificulty = 2;
             break;
         case 3:
             wordI = parseInt(Math.random() * priest.length-1);
@@ -87,7 +107,7 @@ function wordSelection(dificulty){
             for(let i = 0; i < word.length; i++){
                 answer += "_";
             }
-            this.dificulty = 3;
+            dificulty = 3;
             break;
 
     }
@@ -101,7 +121,11 @@ function baseState(){
     
     scrol.style.top = 80 + "%";
     hangMan(tries);
-    scrol.innerHTML = `<div id='Word' class='attempt'>${answer}</div><div id='Letter' class='mainButton' onclick='alfabet()'>Letter</div> <div id='Hint' class='mainButton' onclik='hint()'>Hint</div> <div id='Answer' class='mainButton' onclick='tryAnswer()'>Answer</div> <div id='Reset' class='mainButton' onclick='reset()'>Reset</div>`
+    scrol.innerHTML = `<div id='Word' class='attempt'>${answer}</div>
+                       <div id='Letter' class='mainButton' onclick='alfabet()'>Letter</div> 
+                       <div id='Hint' class='mainButton' onclick='giveHint()'>Hint</div> 
+                       <div id='Answer' class='mainButton' onclick='tryAnswer()'>Answer</div> 
+                       <div id='Reset' class='mainButton' onclick='reset()'>Reset</div>`
 }
 
 function alfabet(){
@@ -178,18 +202,24 @@ function checkLetter(letterIn){
             }
         }
     }
-    checkWord(1);
+    checkWord(1, letterIn);
 
 }
 
-function hint(){
+function giveHint(){
 
     tries--;
 
     switch(dificulty){
-        case 1: scrol.innerHTML = `<div id="givenhint">${peasantHint[wordI]}</div>`; break;
-        case 2: scrol.innerHTML = `<div id="givenhint">${nobleHint[wordI]}</div>`; break;
-        case 3: scrol.innerHTML = `<div id="givenhint">${priestHint[wordI]}</div>`; break;
+        case 1: 
+            scrol.innerHTML = `<div id="givenhint" class="attempt">${peasantHint[wordI]}</div>`; 
+            break;
+        case 2: 
+            scrol.innerHTML = `<div id="givenhint" class="attempt">${nobleHint[wordI]}</div>`; 
+            break;
+        case 3: 
+            scrol.innerHTML = `<div id="givenhint" class="attempt">${priestHint[wordI]}</div>`; 
+            break;
     }
     scrol.innerHTML = scrol.innerHTML + "<div id='return' class='mainButton' onClick='baseState()'>Return</div>";
 
@@ -197,12 +227,12 @@ function hint(){
 
 function tryAnswer(){
 
-    scrol.innerHTML="<input id='guess' class='guess'> <div id='submit' class='mainButton' onClick='checkWord(2)'>Submit</div>";
+    scrol.innerHTML="<input id='guess' class='guess'> <div id='submit' class='mainButton' onClick='checkWord(2,`o`)'>Submit</div>";
     tries = 1;
 
 }
 
-function checkWord(LoW){ //Letter or Word
+function checkWord(LoW, L){ //Letter or Word
     let win = false;
     console.log("in checkWord")
     switch(LoW){
@@ -210,12 +240,12 @@ function checkWord(LoW){ //Letter or Word
             if(answer == word){
                 win = true;
                 winLose(win);
-            } else {
+            } else if(!word.includes(L)) {
                 tries--;
             }
             break;
         case 2:
-            if(document.getElementById("guess").value == word){
+            if(document.getElementById("guess").value.toUpperCase() == word){
                 win = true;
                 winLose(win);
             } else {
