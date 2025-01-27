@@ -22,6 +22,13 @@ let noble = new Array();    //medium
 
 let priest = new Array();   //hard
 
+//hints per dificulty
+let peasantHint = new Array();
+
+let nobleHint = new Array();
+
+let priestHint = new Array();
+
 // elements in the page wen first loaded
 let scrol = document.getElementById("scroll");
 let gallows = document.getElementById("gallows");
@@ -38,6 +45,7 @@ function reset(){
     answer = "";
     hangMan(tries);
     selectDificulty();
+    scrol.style.top = 80 + "%";
 
 }
 
@@ -49,7 +57,7 @@ function selectDificulty(){
 
 function hangMan(tries){
 
-    gallows.innerHTML = `<img src='${hangman[tries]}' width='99%'/>`;
+    gallows.innerHTML = `<img src='${hangman[tries]}' height='80%'/>`;
 
 }
 
@@ -90,6 +98,8 @@ function wordSelection(dificulty){
 }
 
 function baseState(){
+    
+    scrol.style.top = 80 + "%";
     hangMan(tries);
     scrol.innerHTML = `<div id='Word' class='attempt'>${answer}</div><div id='Letter' class='mainButton' onclick='alfabet()'>Letter</div> <div id='Hint' class='mainButton' onclik='hint()'>Hint</div> <div id='Answer' class='mainButton' onclick='tryAnswer()'>Answer</div> <div id='Reset' class='mainButton' onclick='reset()'>Reset</div>`
 }
@@ -98,92 +108,141 @@ function alfabet(){
 
     for(let i = 0; i <= 26; i++){
         switch(i){
-            case 1: scrol.innerHTML = `<div class='letter' onclick='checkLetter(${i})'>A</div>`;
+            case 1: scrol.innerHTML = `<div class='letter' onclick='checkLetter("A")'>A</div>`;
             break;
-            case 2: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>B</div>`;
+            case 2: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("B")'>B</div>`;
             break;
-            case 3: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>C</div>`;
+            case 3: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("C")'>C</div>`;
             break;
-            case 4: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>D</div>`;
+            case 4: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("D")'>D</div>`;
             break;
-            case 5: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>E</div>`;
+            case 5: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("E")'>E</div>`;
             break;
-            case 6: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>F</div>`;
+            case 6: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("F")'>F</div>`;
             break;
-            case 7: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>G</div>`;
+            case 7: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("G")'>G</div>`;
             break;
-            case 8: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>H</div>`;
+            case 8: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("H")'>H</div>`;
             break;
-            case 9: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>I</div>`;
+            case 9: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("I")'>I</div>`;
             break;
-            case 10: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>J</div>`;
+            case 10: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("J")'>J</div>`;
             break;
-            case 11: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>K</div>`;
+            case 11: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("K")'>K</div>`;
             break;
-            case 12: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>L</div>`;
+            case 12: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("L")'>L</div>`;
             break;
-            case 13: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>M</div>`;
+            case 13: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("M")'>M</div>`;
             break;
-            case 14: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>N</div>`;
+            case 14: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("N")'>N</div>`;
             break;
-            case 15: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>O</div>`;
+            case 15: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("O")'>O</div>`;
             break;
-            case 16: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>P</div>`;
+            case 16: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("P")'>P</div>`;
             break;
-            case 17: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>Q</div>`;
+            case 17: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("Q")'>Q</div>`;
             break;
-            case 18: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>R</div>`;
+            case 18: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("R")'>R</div>`;
             break;
-            case 19: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>S</div>`;
+            case 19: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("S")'>S</div>`;
             break;
-            case 20: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>T</div>`;
+            case 20: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("T")'>T</div>`;
             break;
-            case 21: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>U</div>`;
+            case 21: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("U")'>U</div>`;
             break;
-            case 22: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>V</div>`;
+            case 22: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("V")'>V</div>`;
             break;
-            case 23: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>W</div>`;
+            case 23: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("W")'>W</div>`;
             break;
-            case 24: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>X</div>`;
+            case 24: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("X")'>X</div>`;
             break;
-            case 25: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>Y</div>`;
+            case 25: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("Y")'>Y</div>`;
             break;
-            case 26: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter(${i})'>Z</div>`;
+            case 26: scrol.innerHTML = scrol.innerHTML + `<div class='letter' onclick='checkLetter("Z")'>Z</div>`;
             break;
         }
     }
         
-    
+    scrol.style.top = 20 + "%"
 
 }
 
 function checkLetter(letterIn){
 
     if(word.includes(letterIn)){
-        console.log("in")
         for(let i = 0; i < word.length; i++){
             if(word.at(i) == letterIn){
-                answer.at(i) = letterIn;
-
-                console.log("found");
+                let first = answer.substring(0, i);
+                let end = answer.substring(i+1, answer.length);
+                answer = first + letterIn + end;
             }
         }
-    } else {
-        tries--;
     }
-
-    baseState();
+    checkWord(1);
 
 }
 
 function hint(){
 
+    tries--;
+
+    switch(dificulty){
+        case 1: scrol.innerHTML = `<div id="givenhint">${peasantHint[wordI]}</div>`; break;
+        case 2: scrol.innerHTML = `<div id="givenhint">${nobleHint[wordI]}</div>`; break;
+        case 3: scrol.innerHTML = `<div id="givenhint">${priestHint[wordI]}</div>`; break;
+    }
+    scrol.innerHTML = scrol.innerHTML + "<div id='return' class='mainButton' onClick='baseState()'>Return</div>";
+
 }
 
 function tryAnswer(){
 
+    scrol.innerHTML="<input id='guess' class='guess'> <div id='submit' class='mainButton' onClick='checkWord(2)'>Submit</div>";
+    tries = 1;
+
 }
-//hint -1 try
-//answer, wrong answer is death
-//win/lose state function
-//graphic functions
+
+function checkWord(LoW){ //Letter or Word
+    let win = false;
+    console.log("in checkWord")
+    switch(LoW){
+        case 1:
+            if(answer == word){
+                win = true;
+                winLose(win);
+            } else {
+                tries--;
+            }
+            break;
+        case 2:
+            if(document.getElementById("guess").value == word){
+                win = true;
+                winLose(win);
+            } else {
+                tries--;
+            }
+            break;
+    }
+
+    if(win == false){
+        if(tries <= 0){
+            hangMan(tries)
+            winLose(win);
+            //you lose
+        } else {
+            baseState();
+        }
+    }
+    
+}
+
+function winLose(WoL){ //win or lose
+    scrol.style.top = 20 + "%";
+    if(WoL == true){
+        scrol.innerHTML = "<div class='anouncement'>PARDONED</div>"
+    } else {
+        scrol.innerHTML = "<div class='anouncement'>EXECUTED</div>"
+    }
+    scrol.innerHTML = scrol.innerHTML + "<div class='mainButton' onClick='reset()'>Reset</div>"
+}
+
