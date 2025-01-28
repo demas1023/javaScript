@@ -1,3 +1,6 @@
+//NOTE IMPORTANT
+//this is a minimum viable product, there is still much missing in terms of graffics and story, but the entire game works
+
 let wordI;
 let tries;
 let word;
