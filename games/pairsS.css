@@ -1,0 +1,53 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.clock{
+    background-color: black;
+}
+
+.board{
+    position: fixed;
+    top: -400px;
+    width: 1000px;
+    height: 610px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(0, 100, 0);
+    border: 5px solid rgb(131, 71, 42);
+    border-bottom: 5px solid rgb(0, 100, 0);
+}
+
+.panel{
+    position: fixed;
+    top: 220px;
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    height: 300px;
+    background-color: rgb(0, 100, 0);
+    background-image: url("img/rect1.png");
+    border: 5px solid rgb(131, 71, 42);
+    border-top: 5px solid rgb(0, 100, 0);
+}
+
+.card{
+    margin: 5px;
+    padding: 2px;
+    width: 100px;
+    height: 170px;
+    border-radius: 10px;
+    border: 3px solid whitesmoke;
+}
+
+.button{
+    margin-top: 170px;
+    background-image: radial-gradient(rgb(184, 82, 82),red);
+    height: fit-content;
+    padding: 10px;
+    font-size: xx-large;
+    border: 5px solid goldenrod;
+    border-radius: 50%;
+}
