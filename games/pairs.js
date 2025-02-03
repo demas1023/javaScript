@@ -12,6 +12,11 @@ let pairsFound;
 let fliped;
 let first;
 let second;
+let clocktime;
+
+let minutes;
+let seconds;
+let miliseconds;
 
 let board = document.getElementById("board");
 let clock = document.getElementById("clock");
@@ -32,9 +37,14 @@ function reset(){
 
     board.style.position = "static";
     panel.style.position = "static";
+    clock.style.position = "static";
+    clock.style.zIndex = 0;
     button.innerHTML = "RESET";
 
-    console.log(randomizedFotos.length/2);
+    minutes = 0
+    seconds = 0
+    miliseconds = 0
+    clocktime = setInterval(clockwork, 1);
         
 }
 
@@ -80,7 +90,43 @@ function checkFoto(){
     fliped = 1;
     
     if(pairsFound == randomizedFotos.length/2){
-        console.log("win")
+        clearTimeout(clocktime);
+        winBanner();
     }
+
+}
+
+function clockwork(){
+
+    miliseconds++
+
+    if(miliseconds >= 1000){
+        seconds++
+        miliseconds = 0
+    }
+    if(seconds >= 60){
+        minutes++
+        seconds = 0
+    }
+
+    clock.innerHTML = minutes + ":" + seconds + ":" + miliseconds;
+
+}
+
+function winBanner(){
+
+    board.style.position = "fixed";
+    panel.style.position = "fixed";
+    button.innerHTML = "PLAY";
+
+    clock.style.position = "fixed";
+    clock.style.top = 20 + "%";
+    clock.style.left = 40 + "%";
+    clock.style.height = 200 + "px";
+    clock.style.width = 300 + "px"
+    clock.style.zIndex = 1;
+
+    
+    clock.innerHTML = "<div>" + clock.innerHTML + "</div> <div class='win'>TIME!</div>"
 
 }
