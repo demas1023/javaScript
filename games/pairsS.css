@@ -62,3 +62,8 @@ body{
     border: 5px solid goldenrod;
     border-radius: 50%;
 }
+
+.win{
+    color: gold;
+    font-size: 100px;
+}
