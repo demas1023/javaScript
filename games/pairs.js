@@ -39,6 +39,8 @@ function reset(){
     panel.style.position = "static";
     clock.style.position = "static";
     clock.style.zIndex = 0;
+    clock.style.width = 100 + "px"
+    clock.style.height = 30 + "px"
     button.innerHTML = "RESET";
 
     minutes = 0
