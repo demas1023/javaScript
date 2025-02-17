@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10%;
+}
+
+.button{
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.reset{
+    position: fixed;
+    top: 90%;
+    left: 90%;
+}
