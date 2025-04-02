@@ -88,14 +88,16 @@
 .wrong{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 30%;
     width: 100%;
     height: 30%;
     background-color: rgb(170, 59, 59);
-    opacity: 50%;
+    opacity: 90%;
     font-size: xx-large;
-    color: red;
+    color: rgb(121, 0, 0);
 }
 
 .container{
